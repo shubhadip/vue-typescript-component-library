@@ -1,10 +1,10 @@
-import Text2 from './Text2.vue'
+import AutoComplete from './AutoComplete.vue'
 
 import { use, registerComponent } from '../../utils/plugins'
 
 const Plugin = {
   install (Vue: any) {
-    registerComponent(Vue, Text2)
+    registerComponent(Vue, AutoComplete)
   }
 }
 
@@ -13,5 +13,5 @@ use(Plugin)
 export default Plugin
 
 export {
-  Text2
+  AutoComplete
 }

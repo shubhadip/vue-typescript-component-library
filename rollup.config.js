@@ -3,6 +3,7 @@ import node from '@rollup/plugin-node-resolve'
 import cjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
 import postcss from 'rollup-plugin-postcss'
+import alias from '@rollup/plugin-alias'
 import { terser } from 'rollup-plugin-terser'
 import css from 'rollup-plugin-css-only'
 import postcssImport from 'postcss-import'
@@ -21,7 +22,7 @@ import postcssRem from 'postcss-rem'
 import sortMedia from 'postcss-sort-media-queries'
 import cssnano from 'cssnano'
 import url from '@rollup/plugin-url'
-import typescript from 'rollup-plugin-typescript2'
+import typescript from 'rollup-plugin-typescript'
 
 import fs from 'fs'
 import path from 'path'
@@ -60,6 +61,7 @@ const vuePluginConfig = {
     style: 'postcss',
     script: 'ts'
   },
+  compileTemplate: false,
   template: {
     isProduction: true,
     compilerOptions: {
@@ -119,41 +121,41 @@ const vuePluginConfig = {
 }
 
 export default () => {
-  // const mapComponent = (name) => {
-  //   return [
-  //     {
-  //       input: baseFolder + componentsFolder + `${name}/index.ts`,
-  //       external: ['vue'],
-  //       output: {
-  //         format: 'umd',
-  //         name: capitalize(name),
-  //         file: `dist/components/${name}/index.js`,
-  //         exports: 'named',
-  //         globals: {
-  //           vue: 'Vue'
-  //         }
-  //       },
-  //       plugins: [
-  //         typescript(),
-  //         url({
-  //           include: [
-  //             '**/*.svg',
-  //             '**/*.png',
-  //             '**/*.gif',
-  //             '**/*.jpg',
-  //             '**/*.jpeg'
-  //           ]
-  //         }),
-  //         node({
-  //           extensions: ['.vue', '.js', '.ts','.css']
-  //         }),
-  //         cjs(),
-  //         vue(vuePluginConfig),
-  //         babel(babelConfig)
-  //       ]
-  //     }
-  //   ]
-  // }
+  const mapComponent = (name) => {
+    return [
+      {
+        input: baseFolder + componentsFolder + `${name}/index.ts`,
+        external: ['vue'],
+        output: {
+          format: 'umd',
+          name: capitalize(name),
+          file: `dist/components/${name}/index.js`,
+          exports: 'named',
+          globals: {
+            vue: 'Vue'
+          }
+        },
+        plugins: [
+          typescript(),
+          url({
+            include: [
+              '**/*.svg',
+              '**/*.png',
+              '**/*.gif',
+              '**/*.jpg',
+              '**/*.jpeg'
+            ]
+          }),
+          node({
+            extensions: ['.vue', '.js', '.ts']
+          }),
+          cjs(),
+          vue(vuePluginConfig),
+          babel(babelConfig)
+        ]
+      }
+    ]
+  }
 
   let config = [
     {
@@ -164,6 +166,9 @@ export default () => {
         dir: 'dist/esm'
       },
       plugins: [
+        alias({
+          'vue': require.resolve('vue/dist/vue.esm.js')
+        }),
         typescript(),
         cjs(),
         url({
@@ -176,7 +181,7 @@ export default () => {
           ]
         }),
         node({
-          extensions: ['.vue', '.js', '.ts', '.css'],
+          extensions: ['.vue', '.js', '.ts'],
           browser: true
         }),
         postcss({
@@ -192,33 +197,33 @@ export default () => {
         babel(babelConfig)
       ]
     },
-    // {
-    //   input: entries,
-    //   external: ['vue'],
-    //   output: {
-    //     format: 'cjs',
-    //     dir: 'dist/cjs',
-    //     exports: 'named'
-    //   },
-    //   plugins: [
-    //     typescript(),
-    //     url({
-    //       include: [
-    //         '**/*.svg',
-    //         '**/*.png',
-    //         '**/*.gif',
-    //         '**/*.jpg',
-    //         '**/*.jpeg'
-    //       ]
-    //     }),
-    //     node({
-    //       extensions: ['.vue', '.js', '.ts']
-    //     }),
-    //     vue(vuePluginConfig),
-    //     babel(babelConfig),
-    //     cjs()
-    //   ]
-    // },
+    {
+      input: entries,
+      external: ['vue'],
+      output: {
+        format: 'cjs',
+        dir: 'dist/cjs',
+        exports: 'named'
+      },
+      plugins: [
+        typescript(),
+        url({
+          include: [
+            '**/*.svg',
+            '**/*.png',
+            '**/*.gif',
+            '**/*.jpg',
+            '**/*.jpeg'
+          ]
+        }),
+        node({
+          extensions: ['.vue', '.js', '.ts']
+        }),
+        vue(vuePluginConfig),
+        babel(babelConfig),
+        cjs()
+      ]
+    },
     // {
     //   input: 'src/index.ts',
     //   external: ['vue'],
@@ -258,6 +263,9 @@ export default () => {
         file: 'dist/vueslib.esm.js'
       },
       plugins: [
+        alias({
+          'vue': require.resolve('vue/dist/vue.esm.js')
+        }),
         typescript(),
         url({
           include: [
@@ -278,9 +286,9 @@ export default () => {
         babel(babelConfig),
         cjs()
       ]
-    }
+    },
     // individual components
-    // ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), [])
+    ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), [])
 
   ]
 

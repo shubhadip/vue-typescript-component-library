@@ -10,12 +10,12 @@
 //     HelloWorld
 // }
 
-import Text2 from './text2'
-import Text1 from './text1'
+import AutoComplete from './autocomplete'
+// import AppButton from './appbutton'
 import HelloWorld from './helloworld'
 
 export {
-    Text2,
-    Text1,
+    AutoComplete,
+    // AppButton,
     HelloWorld
 }

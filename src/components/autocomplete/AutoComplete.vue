@@ -1,6 +1,6 @@
 <template>
 <div>
-    <p class="yellow" @click="test()"> I am Text Component
+    <p class="yellow" @click="test()"> I am AutoComplete Component
       <span class="reda">asdasdas</span>
     </p>
     <span class="red">asdasdas</span>
@@ -13,7 +13,7 @@
 <script lang="ts">
 
 export default {
-  name: 'Text1',
+  name: 'AutoComplete',
   data () {
     return {
       text1: 'I am Text Component'
