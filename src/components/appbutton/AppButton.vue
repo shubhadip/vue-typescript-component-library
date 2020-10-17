@@ -1,40 +1,39 @@
 <template>
 <div>
-    <p class="yellow" @click="test()"> I am AutoComplete Component
-      <span class="reda">asdasdas</span>
-    </p>
-    <span class="red">asdasdas</span>
-    <img :src="require('../../assets/img/icons/download.jpeg')" />
-    <div class="imgtest">
+    <button @click="test()">Button</button>
+    <div v-if="showMe">
+      You Clicked Me
     </div>
 </div>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
-export default Vue.component('AutoComplete', {
-  name: 'AutoComplete',
-  data () {
+import Vue from 'vue'
+
+interface RData {
+  text1: string;
+  showMe: boolean;
+}
+export default Vue.component('AppButton', {
+  name: 'Button',
+  data (): RData {
     return {
-      text1: 'I am Text Component'
+      text1: 'I am Button Component2',
+      showMe: false
     }
   },
   props: {
     isValid: {
       type: Boolean,
       default: false
-    },
-    msg: {
-      type: Object as PropType<{foo: string; bar: string}>
     }
   },
   methods: {
     test (): void {
-      console.log('test1', this.msg.foo)
+      this.showMe = !this.showMe
     }
   }
 })
-
 </script>
 
 <style lang="postcss" scoped>

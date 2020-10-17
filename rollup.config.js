@@ -22,7 +22,7 @@ import postcssRem from 'postcss-rem'
 import sortMedia from 'postcss-sort-media-queries'
 import cssnano from 'cssnano'
 import url from '@rollup/plugin-url'
-import typescript from 'rollup-plugin-typescript'
+import typescript from 'rollup-plugin-typescript2'
 
 import fs from 'fs'
 import path from 'path'
@@ -167,7 +167,7 @@ export default () => {
       },
       plugins: [
         alias({
-          'vue': require.resolve('vue/dist/vue.esm.js')
+          vue: require.resolve('vue/dist/vue.esm.js')
         }),
         typescript(),
         cjs(),
@@ -264,7 +264,7 @@ export default () => {
       },
       plugins: [
         alias({
-          'vue': require.resolve('vue/dist/vue.esm.js')
+          vue: require.resolve('vue/dist/vue.esm.js')
         }),
         typescript(),
         url({

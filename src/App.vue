@@ -4,19 +4,37 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <Text2 />
+    <AutoComplete />
+    <AppButton />
+    <hello-world />
+    <div class="test">
+      <AppSlider />
+    </div>
+    <AppDatePicker/>
   </div>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
-import Text2 from './components/text2/Text2.vue'
+import AutoComplete from './components/autocomplete/AutoComplete.vue'
+import AppButton from './components/appbutton/AppButton.vue'
+import HelloWorld from './components/helloworld/HelloWorld.vue'
+import AppSlider from './components/appslider/AppSlider.vue'
+import AppDatePicker from './components/appdatepicker/AppDatePicker.vue'
+
 export default Vue.extend({
   name: 'App',
   components: {
-    Text2
+    AutoComplete,
+    AppButton,
+    HelloWorld,
+    AppSlider,
+    AppDatePicker
   }
 })
+
 </script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -36,6 +54,12 @@ export default Vue.extend({
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+}
+
+.test{
+  .vue-slider-rail{
+    background-color: blue;
   }
 }
 </style>

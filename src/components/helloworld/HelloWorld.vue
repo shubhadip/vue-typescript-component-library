@@ -36,7 +36,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.component('HelloWorld',{
+export default Vue.component('HelloWorld', {
   name: 'HelloWorld',
   props: {
     msg: String
