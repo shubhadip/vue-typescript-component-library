@@ -4,10 +4,19 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <Text2 />
   </div>
 </template>
-
+<script lang="ts">
+import Vue from 'vue'
+import Text2 from './components/text2/Text2.vue'
+export default Vue.extend({
+  name: 'App',
+  components: {
+    Text2
+  }
+})
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
