@@ -3,7 +3,6 @@ import node from '@rollup/plugin-node-resolve'
 import cjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
 import postcss from 'rollup-plugin-postcss'
-import alias from '@rollup/plugin-alias'
 import { terser } from 'rollup-plugin-terser'
 import css from 'rollup-plugin-css-only'
 import postcssImport from 'postcss-import'
@@ -23,6 +22,7 @@ import sortMedia from 'postcss-sort-media-queries'
 import cssnano from 'cssnano'
 import url from '@rollup/plugin-url'
 import typescript from 'rollup-plugin-typescript2'
+import analyze from 'rollup-plugin-analyzer'
 
 import fs from 'fs'
 import path from 'path'
@@ -61,7 +61,6 @@ const vuePluginConfig = {
     style: 'postcss',
     script: 'ts'
   },
-  compileTemplate: false,
   template: {
     isProduction: true,
     compilerOptions: {
@@ -151,7 +150,7 @@ export default () => {
           }),
           cjs(),
           vue(vuePluginConfig),
-          babel(babelConfig)
+          babel(babelConfig),
         ]
       }
     ]
@@ -166,9 +165,6 @@ export default () => {
         dir: 'dist/esm'
       },
       plugins: [
-        alias({
-          vue: require.resolve('vue/dist/vue.esm.js')
-        }),
         typescript(),
         cjs(),
         url({
@@ -182,7 +178,6 @@ export default () => {
         }),
         node({
           extensions: ['.vue', '.js', '.ts'],
-          browser: true
         }),
         postcss({
           plugins: [
@@ -194,7 +189,16 @@ export default () => {
         }),
         css(),
         vue(vuePluginConfig),
-        babel(babelConfig)
+        babel(babelConfig),
+        analyze(),
+        terser({
+          output: {
+            comments: '/^!/'
+          },
+          compress: {
+            defaults: true
+          }
+        })
       ]
     },
     {
@@ -221,7 +225,7 @@ export default () => {
         }),
         vue(vuePluginConfig),
         babel(babelConfig),
-        cjs()
+        cjs(),
       ]
     },
     // {
@@ -263,9 +267,6 @@ export default () => {
         file: 'dist/vueslib.esm.js'
       },
       plugins: [
-        alias({
-          vue: require.resolve('vue/dist/vue.esm.js')
-        }),
         typescript(),
         url({
           include: [
@@ -284,7 +285,7 @@ export default () => {
         }),
         vue(vuePluginConfig),
         babel(babelConfig),
-        cjs()
+        cjs(),
       ]
     },
     // individual components
@@ -299,6 +300,9 @@ export default () => {
       c.plugins.push(terser({
         output: {
           comments: '/^!/'
+        },
+        compress: {
+          defaults: true
         }
       }))
     })

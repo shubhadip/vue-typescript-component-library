@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import format from 'date-fns/format'
 
 interface RData {
   text1: string;
@@ -30,6 +31,7 @@ export default Vue.component('AppButton', {
   },
   methods: {
     test (): void {
+      console.log(format(new Date(), 'yyyy-mm-dd'))
       this.showMe = !this.showMe
     }
   }
