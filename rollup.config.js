@@ -61,7 +61,11 @@ const vuePluginConfig = {
     style: 'postcss',
     script: 'ts'
   },
-  complileTemplate: false,
+  transformAssetUrls: {
+    includeAbsolute: true
+  },
+  preprocessStyles: true,
+  compileTemplate: false,
   template: {
     isProduction: true,
     compilerOptions: {
@@ -151,6 +155,7 @@ export default () => {
           }),
           cjs(),
           vue(vuePluginConfig),
+          css(),
           babel(babelConfig)
         ]
       }
@@ -180,16 +185,8 @@ export default () => {
         node({
           extensions: ['.vue', '.js', '.ts']
         }),
-        postcss({
-          plugins: [
-            postcssImport(),
-            simplevars(),
-            postcssUrl(),
-            autoprefixer()
-          ]
-        }),
-        css(),
         vue(vuePluginConfig),
+        css(),
         babel(babelConfig),
         analyze(),
         terser({
@@ -225,6 +222,7 @@ export default () => {
           extensions: ['.vue', '.js', '.ts']
         }),
         vue(vuePluginConfig),
+        css(),
         babel(babelConfig),
         cjs()
       ]
@@ -278,13 +276,11 @@ export default () => {
             '**/*.jpeg'
           ]
         }),
-        // includePaths({
-        //     paths: ['src/assets/*',],
-        // }),
         node({
           extensions: ['.vue', '.js', '.ts', '.css']
         }),
         vue(vuePluginConfig),
+        css(),
         babel(babelConfig),
         cjs()
       ]

@@ -34,7 +34,10 @@ export default defineComponent({
 })
 
 </script>
-<style src="vue-slider-component/theme/antd.css" lang="css"></style>
+<style lang="css">
+  @import "node_modules/vue-slider-component/theme/antd"
+</style>
+
 <style lang="postcss" scoped>
-@import '@css/_app-partials.css';
+  @import "../assets/styles/css/app-partials.css";
 </style>

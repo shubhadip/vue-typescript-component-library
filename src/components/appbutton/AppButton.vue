@@ -39,8 +39,7 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
-@import '@css/_app-partials.css';
-
+@import '../assets/styles/css/app-partials.css';
 .yellow {
     color: red;
 

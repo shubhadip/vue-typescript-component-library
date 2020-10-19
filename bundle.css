@@ -1,0 +1,105 @@
+
+h3[data-v-7ddb6a0f] {
+  margin: 40px 0 0;
+}
+ul[data-v-7ddb6a0f] {
+  list-style-type: none;
+  padding: 0;
+}
+li[data-v-7ddb6a0f] {
+  display: inline-block;
+  margin: 0 10px;
+}
+a[data-v-7ddb6a0f] {
+  color: #42b983;
+}
+
+@import '../assets/styles/css/app-partials.css';
+.yellow[data-v-dfc4ce92] {
+    color: red;
+.reda {
+        color: $black;
+}
+}
+.red[data-v-dfc4ce92] {
+    color: green;
+}
+.imgtest[data-v-dfc4ce92] {
+    background-image: url('../../assets/img/icons/star-half.svg');
+    background-size: 100%;
+    width: 100px;
+    height: 100px;
+}
+
+@import '../assets/styles/css/app-partials.css';
+.app-star-rating[data-v-8cce16de] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-star-rating__stars[data-v-8cce16de] {
+  padding: 0;
+  margin: 0;
+}
+.read-only>.app-star-rating__star[data-v-8cce16de] {
+  pointer-events: none;
+}
+
+$starMedium: 30px;
+$starSmall: 20px;
+$starLarge: 50px;
+.app-star-rating__star[data-v-8cce16de] {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+  box-sizing: border-box;
+  background-image: url('../../assets/img/icons/star-default.svg');
+  transition: all 0.2s ease;
+  background-size: cover;
+&.hovered,
+  &.active {
+    background-image: url('../../assets/img/icons/star-active.svg');
+}
+&.half {
+    background-image: url('../../assets/img/icons/star-half.svg');
+}
+&:first-child {
+    margin-left: 0;
+}
+&--sm {
+    width: $starSmall;
+    height: $starSmall;
+}
+&--md {
+    width: $starMedium;
+    height: $starMedium;
+}
+&--lg {
+    width: $starLarge;
+    height: $starLarge;
+}
+}
+.app-star-rating__info[data-v-8cce16de] {
+  margin-left: 20px;
+}
+
+@import '../assets/styles/css/app-partials.css';
+.yellow[data-v-131dab8f] {
+    color: red;
+.reda {
+        color: $black;
+}
+}
+.red[data-v-131dab8f] {
+    color: green;
+}
+.imgtest[data-v-131dab8f] {
+    background-image: url('../../assets/img/icons/star-half.svg');
+    background-size: 100%;
+    width: 100px;
+    height: 100px;
+}
+
+@import "node_modules/vue-slider-component/theme/antd"
+
+@import "../assets/styles/css/app-partials.css";
