@@ -7,3 +7,15 @@ declare const _default: {
 };
 
 export default _default;
+
+export interface AppButton {
+  isValid: boolean
+}
+
+export interface AppStarRating {
+  maxRating: Number
+  showCounter: Boolean
+  value: Number
+  size: String
+  readOnly: Boolean
+}
