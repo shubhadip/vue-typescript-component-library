@@ -1,14 +1,15 @@
+import { App as Application } from 'vue';
 import AppStarRating from './AppStarRating.vue'
 
-import { use, registerComponent } from '../../utils/plugins'
+import { registerComponent } from '../../utils/plugins'
 
 const Plugin = {
-  install (Vue: any) {
+  install (Vue: Application) {
     registerComponent(Vue, AppStarRating)
   }
 }
 
-use(Plugin)
+// use(Plugin)
 
 export default Plugin
 

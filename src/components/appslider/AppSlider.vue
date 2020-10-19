@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import VueSlider from 'vue-slider-component'
 
-export default Vue.component('AppSlider', {
+export default defineComponent({
   name: 'AppSlider',
   components: {
     VueSlider

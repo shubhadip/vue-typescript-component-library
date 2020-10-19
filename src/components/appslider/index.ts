@@ -1,14 +1,15 @@
+import { App as Application } from 'vue';
 import AppSlider from './AppSlider.vue'
 
-import { use, registerComponent } from '../../utils/plugins'
+import { registerComponent } from '../../utils/plugins'
 
 const Plugin = {
-  install (Vue: any) {
+  install (Vue: Application) {
     registerComponent(Vue, AppSlider)
   }
 }
 
-use(Plugin)
+// use(Plugin)
 
 export default Plugin
 

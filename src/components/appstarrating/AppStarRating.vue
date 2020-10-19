@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 
 enum AppButtonSizes {
   SMALL = 'sm',
@@ -16,7 +16,7 @@ enum AppButtonSizes {
   LARGE = 'lg',
 }
 
-export default Vue.component('AppStarRating', {
+export default defineComponent({
   name: 'AppStarRating',
   props: {
     /**
@@ -120,7 +120,7 @@ export default Vue.component('AppStarRating', {
       return sizeClass
     },
     classNames (): string[] {
-      const readOnly = this.$props.readOnly && 'read-only'
+      const readOnly = this.readOnly ? 'read-only' : ''
       return ['app-star-rating__stars', readOnly]
     }
   }

@@ -8,14 +8,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import format from 'date-fns/format'
 
 interface RData {
   text1: string;
   showMe: boolean;
 }
-export default Vue.component('AppButton', {
+export default defineComponent({
   name: 'Button',
   data (): RData {
     return {

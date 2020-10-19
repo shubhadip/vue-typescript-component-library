@@ -2,7 +2,7 @@
 import * as components from './components'
 
 import  {setVueInstance } from './utils/config/'
-import { use } from './utils/plugins/'
+// import { use } from './utils/plugins/'
 
 const vueslib = {
     install(instance : any) {
@@ -13,7 +13,7 @@ const vueslib = {
     }
 }
 
-use(vueslib)
+// use(vueslib)
 
 export default vueslib
 

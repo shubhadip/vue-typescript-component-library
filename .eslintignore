@@ -5,3 +5,4 @@ src/shims-vue.d.ts
 vue.config.js
 src/main.ts
 src/index.ts
+*.config.js

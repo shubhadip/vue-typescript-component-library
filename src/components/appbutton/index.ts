@@ -1,14 +1,15 @@
+import { App as Application} from 'vue'
 import AppButton from './AppButton.vue'
 
-import { use, registerComponent } from '../../utils/plugins'
+import { registerComponent } from '../../utils/plugins'
 
 const Plugin = {
-  install (Vue: any) {
-    registerComponent(Vue, AppButton)
+  install (App:  Application) {
+    registerComponent(App, AppButton)
   }
 }
 
-use(Plugin)
+// use(Plugin)
 
 export default Plugin
 

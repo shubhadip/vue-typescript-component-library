@@ -15,14 +15,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import AutoComplete from './components/autocomplete/AutoComplete.vue'
 import AppButton from './components/appbutton/AppButton.vue'
 import HelloWorld from './components/helloworld/HelloWorld.vue'
 import AppSlider from './components/appslider/AppSlider.vue'
 import AppStarRating from './components/appstarrating/AppStarRating.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'App',
   components: {
     AutoComplete,

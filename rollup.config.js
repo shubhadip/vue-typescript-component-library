@@ -61,6 +61,7 @@ const vuePluginConfig = {
     style: 'postcss',
     script: 'ts'
   },
+  complileTemplate: false,
   template: {
     isProduction: true,
     compilerOptions: {
@@ -150,7 +151,7 @@ export default () => {
           }),
           cjs(),
           vue(vuePluginConfig),
-          babel(babelConfig),
+          babel(babelConfig)
         ]
       }
     ]
@@ -177,7 +178,7 @@ export default () => {
           ]
         }),
         node({
-          extensions: ['.vue', '.js', '.ts'],
+          extensions: ['.vue', '.js', '.ts']
         }),
         postcss({
           plugins: [
@@ -225,7 +226,7 @@ export default () => {
         }),
         vue(vuePluginConfig),
         babel(babelConfig),
-        cjs(),
+        cjs()
       ]
     },
     // {
@@ -285,7 +286,7 @@ export default () => {
         }),
         vue(vuePluginConfig),
         babel(babelConfig),
-        cjs(),
+        cjs()
       ]
     },
     // individual components

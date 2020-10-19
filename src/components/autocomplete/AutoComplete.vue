@@ -11,8 +11,9 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
-export default Vue.component('AutoComplete', {
+import { defineComponent, PropType } from 'vue'
+
+export default defineComponent({
   name: 'AutoComplete',
   data () {
     return {
@@ -30,7 +31,7 @@ export default Vue.component('AutoComplete', {
   },
   methods: {
     test (): void {
-      console.log('test1', this.msg.foo)
+      console.log('test1', this.$props.msg)
     }
   }
 })
