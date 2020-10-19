@@ -10,7 +10,7 @@
     <div class="test">
       <AppSlider />
     </div>
-    <AppStarRating/>
+    <AppStarRating />
   </div>
 </template>
 

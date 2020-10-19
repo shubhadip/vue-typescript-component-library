@@ -6,16 +6,16 @@ declare const _default: {
   install: typeof install;
 };
 
-export default _default;
-
-export interface AppButton {
+export declare type AppButton =  {
   isValid: boolean
 }
 
-export interface AppStarRating {
+export declare type AppStarRating =  {
   maxRating: Number
   showCounter: Boolean
   value: Number
   size: String
   readOnly: Boolean
 }
+
+export default _default;
