@@ -10,7 +10,7 @@
     <div class="test">
       <AppSlider />
     </div>
-    <!-- <AppDatePicker/> -->
+    <AppStarRating/>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ import AutoComplete from './components/autocomplete/AutoComplete.vue'
 import AppButton from './components/appbutton/AppButton.vue'
 import HelloWorld from './components/helloworld/HelloWorld.vue'
 import AppSlider from './components/appslider/AppSlider.vue'
-// import AppDatePicker from './components/appdatepicker/AppDatePicker.vue'
+import AppStarRating from './components/appstarrating/AppStarRating.vue'
 
 export default Vue.extend({
   name: 'App',
@@ -28,8 +28,8 @@ export default Vue.extend({
     AutoComplete,
     AppButton,
     HelloWorld,
-    AppSlider
-    // AppDatePicker
+    AppSlider,
+    AppStarRating
   }
 })
 

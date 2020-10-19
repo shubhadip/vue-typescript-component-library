@@ -1,6 +1,6 @@
 {
   "name": "vue2tslibrary",
-  "version": "0.1.56",
+  "version": "0.1.58",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
