@@ -1,6 +1,6 @@
 <template>
 <div>
-    <p class="yellow" @click="test()"> I am AutoComplete Component
+    <p class="yellow" @click="test()"> I am Dummy Component
       <span class="reda">asdasdas</span>
     </p>
     <span class="red">asdasdas</span>
@@ -12,8 +12,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-export default Vue.component('AutoComplete', {
-  name: 'AutoComplete',
+export default Vue.component('DummyComponent', {
   data () {
     return {
       text1: 'I am Text Component'

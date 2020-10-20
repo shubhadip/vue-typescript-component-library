@@ -61,6 +61,7 @@ const vuePluginConfig = {
     style: 'postcss',
     script: 'ts'
   },
+  css: true,
   template: {
     isProduction: true,
     compilerOptions: {
