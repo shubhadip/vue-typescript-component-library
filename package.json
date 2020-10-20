@@ -1,19 +1,21 @@
 {
   "name": "vue2tslibrary",
-  "version": "0.1.59",
+  "version": "0.1.64",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build:js": "rimraf dist && rollup -c && rollup -c --environment MINIFY"
   },
+  "types": "types/index.d.ts",
   "sideEffects": [
     "*.css",
     "*.scss"
   ],
   "files": [
     "dist",
-    "src"
+    "src",
+    "types/*.d.ts"
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

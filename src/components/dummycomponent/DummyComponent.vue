@@ -1,7 +1,7 @@
 <template>
 <!-- @css/_app-partials.css-->
 <div>
-    <p class="yellow" @click="test()"> I am AutoComplete Component
+    <p class="yellow" @click="test()"> I am Dummy Component
       <span class="reda">asdasdas</span>
     </p>
     <span class="red">asdasdas</span>
@@ -15,7 +15,7 @@
 import { defineComponent, PropType } from 'vue'
 
 export default defineComponent({
-  name: 'AutoComplete',
+  name: 'DummyComponent',
   data () {
     return {
       text1: 'I am Text Component'
@@ -32,7 +32,7 @@ export default defineComponent({
   },
   methods: {
     test (): void {
-      console.log('test1', this.$props.msg)
+      console.log('test1', this.props.msg)
     }
   }
 })

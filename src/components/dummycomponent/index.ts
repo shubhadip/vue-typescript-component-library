@@ -1,11 +1,11 @@
 import { App as Application } from 'vue';
-import AutoComplete from './AutoComplete.vue'
+import DummyComponent from './DummyComponent.vue'
 
 import { registerComponent } from '../../utils/plugins'
 
 const Plugin = {
-  install (Vue: Application) {
-    registerComponent(Vue, AutoComplete)
+  install (vue: Application) {
+    registerComponent(vue, DummyComponent)
   }
 }
 
@@ -14,5 +14,5 @@ const Plugin = {
 export default Plugin
 
 export {
-  AutoComplete
+  DummyComponent
 }

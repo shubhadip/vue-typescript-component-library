@@ -61,11 +61,7 @@ const vuePluginConfig = {
     style: 'postcss',
     script: 'ts'
   },
-  transformAssetUrls: {
-    includeAbsolute: true
-  },
-  preprocessStyles: true,
-  compileTemplate: false,
+  css: true,
   template: {
     isProduction: true,
     compilerOptions: {

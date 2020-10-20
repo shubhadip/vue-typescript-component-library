@@ -4,19 +4,19 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <AutoComplete />
+    <DummyComponent />
     <AppButton />
     <hello-world />
     <div class="test">
       <AppSlider />
     </div>
-    <AppStarRating/>
+    <AppStarRating />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import AutoComplete from './components/autocomplete/AutoComplete.vue'
+import DummyComponent from './components/dummycomponent/DummyComponent.vue'
 import AppButton from './components/appbutton/AppButton.vue'
 import HelloWorld from './components/helloworld/HelloWorld.vue'
 import AppSlider from './components/appslider/AppSlider.vue'
@@ -25,7 +25,7 @@ import AppStarRating from './components/appstarrating/AppStarRating.vue'
 export default defineComponent({
   name: 'App',
   components: {
-    AutoComplete,
+    DummyComponent,
     AppButton,
     HelloWorld,
     AppSlider,
